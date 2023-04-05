@@ -39,6 +39,18 @@ impl Default for Person {
 
 impl From<&str> for Person {
     fn from(s: &str) -> Person {
+        if s.len() == 0 {
+            return Person::default();
+        }
+        let mut splitInput = s.split(",");
+        let name = splitInput.nth(0);
+        let age = splitInput.nth(1).expect("Expected Number for age").parse::<usize>();
+        if let Some(name) = name {
+            if let Some(age) = age {
+                return Person {name: name.to_string(), age};
+            }
+        }
+        return Person::default();
     }
 }
 

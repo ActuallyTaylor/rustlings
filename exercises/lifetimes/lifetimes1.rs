@@ -7,9 +7,7 @@
 //
 // Execute `rustlings hint lifetimes1` or use the `hint` watch subcommand for a hint.
 
-// I AM NOT DONE
-
-fn longest(x: &str, y: &str) -> &str {
+fn longest<'longest>(x: &'longest str, y: &'longest str) ->  &'longest str {
     if x.len() > y.len() {
         x
     } else {
